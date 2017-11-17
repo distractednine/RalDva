@@ -1,0 +1,87 @@
+#done:
+
+Create basic pages layout,
+
+Create modules schema - Ral website, Ral service, Raldentity
+
+Create db schema (Activity, Users, Config, Audit)
+
+Create implementation plan:
+
+create ral2 and its capabilities, work flows diagrams
+
+add ral to github
+
+add todo to github
+
+
+
+
+
+
+#todo:
+
+
+1) Mvc infrastructure
+
+2) react infrastructure
+
+3) basic db for configuration
+
+4) logging, config reading\writing
+
+5) exception handling
+
+6) frontend login implementation
+
+7) fake backend login iinfrastructure
+
+8) db for activities
+
+9) seed data and export from json
+
+9.5) Wa data parsing
+
+10) backend activity list Read implementation
+
+11) frontend activity list Read implementation
+
+12) backend activity list Write implementation
+
+13) frontend activity list Write implementation
+
+14) backend activity list Delete implementation
+
+15) frontend activity list Delete implementation
+
+16) custom identity service implementation
+
+17) setup website communication with custom identity service
+
+18) implement JWT tokens
+
+19) Add functionality to create custom activities - backend
+
+20) Add functionality to create custom activities - frontend
+
+21) Add functionality to create activities plans/history - backend
+
+20) Add functionality to create activities plans/history - frontend
+
+21) Add functionality to set activity dropped on ep - BE\FE
+
+22) Total time spent on activity - analisys of the most popular activites Be\Fe
+
+23) Activities timeline - Be\Fe
+
+24) Export in json file - Be\Fe
+
+25) Log user activities to database - Be
+
+26) Display user activities - Fe
+
+27) Open id login via twitter, facebook, Google - Be\Fe
+
+28) Add functionality to search for A or movies Ost samples on soundcloud - Be\Fe
+
+29) Add functionality to view countdowns till new season - episode release

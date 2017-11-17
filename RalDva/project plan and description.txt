@@ -1,0 +1,79 @@
+Technologies to use:
+
+Deployed Elasticsearch with indexing and aggregations!! Nest!!
+
+Asp.net core
+Ef7
+RabbitMq
+Identity3
+Jwt
+OpenId (google auth)
+SignalR
+ElasticSearch
+React js
+Cqrs + Eventsourcing
+Redis (memcache)
+Angular3
+
+
+Try react js higher order components
+
+implementation
+
+
+start - 17.11.2017
+
+
+
+
+
+
+
+Support for books, series, audio books, movies, tv series, ranobe, anime, manga
+
+Configurable entities with configurable fields
+
+Crud for configurable entity
+
+Plans/history
+
+World art anime parsong by name/id
+
+Total time spent on activity - analisys of the most popular activity
+
+Ability to set rating, filter by rating
+
+Timeline for activities
+
+Configurable entity dashboard - add-remove-sort by dragging
+
+Custom identity managemt service issuing JWT tokens (replacement for identity server)
+
+Export in json file
+
+Log user activities to database
+
+Add functionality to search for A or movies Ost samples on soundcloud
+
+Add functionality to view countdowns till new season - episode release
+
+Open id login via twitter, facebook, Google.
+
+
+
+
+
+
+#For further planning:
+
+add total episodes-watching time per year
+
+add fastest watched count (relation of A duration (toal time) to duration of user's watching time)
+
+Add eventsourcing audit implementation
+
+Add signalR user notifications
+
+Suggestions (Es based)
+
+Examine world art, Mal functionality 2add some extra functions
