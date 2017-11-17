@@ -1,5 +1,7 @@
 #done:
 
+1) Mvc infrastructure
+
 Create basic pages layout,
 
 Create modules schema - Ral website, Ral service, Raldentity
@@ -21,8 +23,13 @@ add todo to github
 
 #todo:
 
+add EF entity configs !
 
-1) Mvc infrastructure
+add plan and watchedA entities!
+
+
+
+
 
 2) react infrastructure
 
