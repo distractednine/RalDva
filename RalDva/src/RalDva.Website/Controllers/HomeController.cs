@@ -12,8 +12,8 @@ namespace RalDva.Website.Controllers
     {
         public IActionResult Index()
         {
-            var w = new RalDvaDbContext();
-            w.TestDbMethod();
+            //var w = new RalDvaDbContext();
+            //w.TestDbMethod();
 
             return View();
         }
