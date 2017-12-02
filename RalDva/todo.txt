@@ -16,16 +16,14 @@ add ral to github
 
 add todo to github
 
+add EF entity configs !
 
+add plan and watchedA entities!
 
 
 
 
 #todo:
-
-add EF entity configs !
-
-add plan and watchedA entities!
 
 
 

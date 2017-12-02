@@ -11,7 +11,7 @@ namespace RalDva.Entities.Interfaces
 
     public interface IEntityWithDuration
     {
-        TimeSpan Duration { get; set; }
+        TimeSpan? Duration { get; set; }
     }
 
     public interface IEntityWithVolumes

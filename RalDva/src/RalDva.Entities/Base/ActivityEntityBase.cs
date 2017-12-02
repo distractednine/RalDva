@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace RalDva.Entities.Concrete
+namespace RalDva.Entities.Base
 {
-    public abstract class ActivityEntityBase
+    public abstract class ActivityEntityBase 
     {
-        public Guid Id { get; set; }
+        public String Name { get; set; }
 
-        public Int32 Year { get; set; }
+        public Int32? Year { get; set; }
 
         public String Language { get; set; }
 

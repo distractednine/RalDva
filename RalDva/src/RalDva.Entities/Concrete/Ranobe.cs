@@ -6,10 +6,10 @@ using RalDva.Entities.Interfaces;
 
 namespace RalDva.Entities.Concrete
 {
-    public class Book : ActivityEntityBase,
+    public class Ranobe : ActivityEntityBase,
         IEntityBase, IActivityEntity, IEntityWithVolumes, IEntityWithPagesNumber
     {
-        public Book()
+        public Ranobe()
         {
             Plans = new HashSet<Plan>();
             Usages = new HashSet<UsageActivity>();

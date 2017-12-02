@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 using RalDva.Entities.Concrete;
+using RalDva.Entities.Concrete.UsageRelated;
+using RalDva.Entities.EntityConfigurations;
 
 namespace RalDva.Entities
 {
@@ -10,29 +12,37 @@ namespace RalDva.Entities
     {
         public DbSet<Anime> Anime { get; set; }
 
-        public DbSet<Anime> AudioBook { get; set; }
+        public DbSet<AudioBook> AudioBooks { get; set; }
 
-        public DbSet<Anime> Book { get; set; }
+        public DbSet<Book> Books { get; set; }
 
-        public DbSet<Anime> Movie { get; set; }
+        public DbSet<Ranobe> Ranobes { get; set; }
 
-        public DbSet<Anime> TvSeries { get; set; }
+        public DbSet<Movie> Movies { get; set; }
 
-        public void TestDbMethod()
-        {
-            Database.EnsureCreated();
+        public DbSet<TvSeries> TvSeries { get; set; }
 
-            Anime.Add(new Anime());
-            SaveChanges();
-        }
+        public DbSet<Plan> Plans { get; set; }
+
+        public DbSet<UsageActivity> UsedActivities { get; set; }
+
+        public DbSet<ActivityUsagePeriod> UsagePeriods { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("RalEntities");
             modelBuilder.HasChangeTrackingStrategy(ChangeTrackingStrategy.Snapshot);
-            
-            // todo: add entity configs here!
-            // add plan and watchedA entities!
+
+            ActivityConfiguration<Anime>.Configure(modelBuilder, "Animes");
+            ActivityConfiguration<AudioBook>.Configure(modelBuilder, "AudioBooks");
+            ActivityConfiguration<Book>.Configure(modelBuilder, "Books");
+            ActivityConfiguration<Movie>.Configure(modelBuilder, "Movies");
+            ActivityConfiguration<Ranobe>.Configure(modelBuilder, "Ranobes");
+            ActivityConfiguration<TvSeries>.Configure(modelBuilder, "TvSeries");
+
+            modelBuilder
+                .Entity<UsageActivity>()
+                .HasMany(x => x.UsagePeriods);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
