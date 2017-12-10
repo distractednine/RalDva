@@ -1,17 +1,17 @@
-﻿//"use strict";
+﻿"use strict";
 
-//var webpack = require("webpack");
 var webpack = require("webpack");
 
-const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 const path = require('path');
 
 module.exports = {
-    entry: "./Scripts/index.js",
+    entry: "./Scripts/index.jsx",
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "./bundle.js"
+        filename: "./bundle.js",
+        sourceMapFilename: "bundle.map"
     },
+    devtool: "#source-map",
     devServer: {
         contentBase: "/dist",
         host: "localhost",
@@ -20,13 +20,23 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js?$/,
+                test: /\.jsx$/,
                 exclude: /(node_modules)/,
                 loader: "babel-loader",
                 query: {
-                    presets: ['env', 'react']
+                    presets: ['env', 'stage-0', 'react']
                 }
             }
+            //,
+            //{
+            //    test: /\.css$/,
+            //    use: ['style-loader', 'css-loader', {
+            //        loader: 'postcss-loader',
+            //        options: {
+            //            plugins: () =>[require('autoprefixer')]
+            //        }
+            //    }]
+            //}
         ]
     }
 };

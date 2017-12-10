@@ -1,0 +1,12 @@
+delete node_modules folder
+
+cmd
+
+run -> npm install
+
+run -> npm install webpack babel-loader babel-preset-env babel-preset-react babel-preset-stage-0
+
+run- > npm install style-loader css-loader postcss-loader
+
+run -> webpack
+

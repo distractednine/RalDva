@@ -20,18 +20,16 @@ add EF entity configs !
 
 add plan and watchedA entities!
 
+react infrastructure
+
+basic db for configuration
+
 
 
 
 #todo:
 
-
-
-
-
-2) react infrastructure
-
-3) basic db for configuration
+add navbar menu
 
 4) logging, config reading\writing
 
