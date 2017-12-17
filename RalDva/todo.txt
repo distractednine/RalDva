@@ -26,13 +26,19 @@ basic db for configuration
 
 react bootstap configuration
 
+add localized resources
+
+
+
 
 
 #todo:
 
 add navbar menu
 
-add localized resources
+adjust logo on navbar
+
+add js logger
 
 4) logging, config reading\writing
 

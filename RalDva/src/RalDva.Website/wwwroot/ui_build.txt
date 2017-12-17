@@ -16,3 +16,6 @@ run -> webpack
 
 
 webpack --display-error-details
+
+
+http://localhost:43546/api/infrastructure/GetMainPageModel

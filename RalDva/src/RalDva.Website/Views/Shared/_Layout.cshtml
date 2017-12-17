@@ -9,15 +9,19 @@
     @*<link href="~/Styles/bootstrap-pulse.css" rel="stylesheet"/>*@
     @*<link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
 </head>
-<body>
+<body id="react-container">
+    
+    @*<div id="react-container"></div>*@
 
-<div class="container body-content">
+@*<div class="container body-content">
+    
+</div>*@
     @RenderBody()
-    <hr/>
+    <hr />
     <footer>
         <p>&copy; @DateTimeOffset.Now.Year.ToString() - Ral dva</p>
     </footer>
-</div>
+
 @RenderSection("scripts", false)
 </body>
 </html>
