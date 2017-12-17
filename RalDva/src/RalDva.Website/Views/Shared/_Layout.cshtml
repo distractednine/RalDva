@@ -1,41 +1,23 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"]</title>
-    <link href="~/Styles/bootstrap.css" rel="stylesheet" />
-    <link href="~/Styles/cosmetic.css" rel="stylesheet" />
+    <link href="~/Styles/cosmetic.css" rel="stylesheet"/>
+    <link href="~/Styles/r-bootstrap.css" rel="stylesheet" />
+    @*<link href="~/Styles/bootstrap-pulse.css" rel="stylesheet"/>*@
+    @*<link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">WebApplication1</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - WebApplication1</p>
-        </footer>
-    </div>
 
-    @RenderSection("scripts", required: false)
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+    <footer>
+        <p>&copy; @DateTimeOffset.Now.Year.ToString() - Ral dva</p>
+    </footer>
+</div>
+@RenderSection("scripts", false)
 </body>
 </html>

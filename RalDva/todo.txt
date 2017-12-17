@@ -24,12 +24,15 @@ react infrastructure
 
 basic db for configuration
 
+react bootstap configuration
 
 
 
 #todo:
 
 add navbar menu
+
+add localized resources
 
 4) logging, config reading\writing
 

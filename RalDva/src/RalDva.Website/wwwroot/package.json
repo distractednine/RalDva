@@ -4,7 +4,8 @@
   "private": true,
   "devDependencies": {
     "react": "15.6.2",
-    "react-dom": "15.6.2"
+    "react-dom": "15.6.2",
+    "react-bootstrap": "^0.31.5"
   },
   "dependencies": {
     "babel-loader": "^7.1.2",

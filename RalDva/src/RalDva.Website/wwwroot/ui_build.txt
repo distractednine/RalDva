@@ -10,3 +10,9 @@ run- > npm install style-loader css-loader postcss-loader
 
 run -> webpack
 
+
+
+
+
+
+webpack --display-error-details

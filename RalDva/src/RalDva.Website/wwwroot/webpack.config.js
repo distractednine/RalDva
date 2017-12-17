@@ -1,13 +1,13 @@
 ﻿"use strict";
 
 var webpack = require("webpack");
-
-const path = require('path');
+var path = require('path');
+var rootPath = path.resolve(__dirname);
 
 module.exports = {
     entry: "./Scripts/index.jsx",
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(rootPath, 'dist'),
         filename: "./bundle.js",
         sourceMapFilename: "bundle.map"
     },
@@ -17,6 +17,15 @@ module.exports = {
         host: "localhost",
         port: 43546
     },
+    //resolve: {
+    //    extensions: ['.js', '.jsx'],
+    //    alias: {
+    //        test: 'test'
+    //        //home: 'components/home',
+    //        //utility: 'components/common/utility',
+    //        //textService: 'services/textService'
+    //    }
+    //},
     module: {
         loaders: [
             {
