@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using RalDva.Website.Resorces;
 using RalDva.Website.DataProviders.Interfaces;
+using RalDva.Website.Models.MainPage;
+using RalDva.Website.Resorces;
 
-namespace RalDva.Website.Models.MainPage
+namespace RalDva.Website.DataProviders
 {
     internal class MainPageModelProvider: IMainPageModelProvider
     {
@@ -19,9 +20,12 @@ namespace RalDva.Website.Models.MainPage
                 Url = ""
             }).ToArray();
 
+            var resourceStrings = ResourceHelper.GetResources(typeof(Strings));
+
             return new MainPageModel
             {
-                ActivityCategories = categories
+                ActivityCategories = categories,
+                ResourceStrings = resourceStrings
             };
         }
     }

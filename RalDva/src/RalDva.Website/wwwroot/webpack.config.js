@@ -35,6 +35,15 @@ module.exports = {
                 query: {
                     presets: ['env', 'stage-0', 'react']
                 }
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                loader: "babel-loader",
+                query: {
+                    presets: ['env', 'stage-0'],
+                    plugins: ['babel-plugin-transform-es2015-arrow-functions', 'transform-class-properties']
+                }
             }
             //,
             //{

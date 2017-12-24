@@ -12,7 +12,7 @@ namespace RalDva.Website.Controllers
             _mainPageModelProvider = mainPageModelProvider;
         }
 
-        [Route("[controller]/GetMainPageModel")]
+        [Route("/api/[controller]/GetMainPageModel")]
         [HttpGet]
         public IActionResult GetMainPageModel()
         {

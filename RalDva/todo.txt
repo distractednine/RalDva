@@ -36,6 +36,8 @@ add localized resources
 
 add navbar menu
 
+add toastr
+
 adjust logo on navbar
 
 add js logger

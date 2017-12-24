@@ -1,5 +1,5 @@
 ﻿var endpoints = {
-    getMainPageModel: '/infrastructure/GetMainPageModel'
+    getMainPageModel: '/api/infrastructure/GetMainPageModel'
 };
 
 export default endpoints;

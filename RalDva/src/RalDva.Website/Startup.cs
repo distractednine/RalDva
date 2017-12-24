@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using RalDva.Website.DataProviders;
 using RalDva.Website.DataProviders.Interfaces;
-using RalDva.Website.Models.MainPage;
 
 namespace RalDva.Website
 {

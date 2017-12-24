@@ -5,7 +5,8 @@
   "devDependencies": {
     "react": "15.6.2",
     "react-dom": "15.6.2",
-    "react-bootstrap": "^0.31.5"
+    "react-bootstrap": "^0.31.5",
+    "prop-types": "15.6.0"
   },
   "dependencies": {
     "babel-loader": "^7.1.2",

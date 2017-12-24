@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 //alert("hyllo!");
 
 ReactDom.render(
-    <div><h1>"ReactDomHGello"</h1></div>, document.getElementById("root")
+    <div><h1>"ReactDomHGello"</h1></div>, document.getElementById('react-container')
     )
 
 

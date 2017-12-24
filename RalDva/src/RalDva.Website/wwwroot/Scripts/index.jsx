@@ -6,7 +6,8 @@ import TestMenu from './test/testMenu.jsx';
 import testData from './test/testData.jsx';
 
 // components
-import MainNavbar from './components/mainNavbar.jsx';
+import MainNavbar from './components/MainNavbar.jsx';
+import HeaderActionPanel from './components/HeaderActionPanel.jsx';
 
 // utils
 import dataservice from './utils/dataservice.js';
@@ -14,20 +15,19 @@ import endpoints from './utils/endpoints.js';
 
 var mainVM = null;
 
-const callback = (responseData) => {
+var callback = function (responseData)  {
     mainVM = responseData;
 
     ReactDom.render(
-        <MainNavbar activityCategories={mainVM.activityCategories}/>,
+        <div>
+            <MainNavbar activityCategories={mainVM.activityCategories} />
+        </div>,
         document.getElementById("react-container")
     );
 };
 
-dataservice.get(endpoints.getMainPageModel, callback);
+var onError = function (response) {
+    alert("Error occurred!");
+};
 
-
-
-/*
-<TestMenu recipes={testData}
-title="Delicious Recipes"/>,
-document.getElementById("react-container")*/
+dataservice.get(endpoints.getMainPageModel, callback, onError);

@@ -1,11 +1,17 @@
-﻿namespace RalDva.Website.Models.MainPage
+﻿using System;
+
+namespace RalDva.Website.Models.MainPage
 {
-    public class ActivityCategory
+    public class ActivityCategory : UiLinkItem
     {
-        public string Name { get; set; }
+    }
 
-        public string Caption { get; set; }
+    public class UiLinkItem
+    {
+        public String Name { get; set; }
 
-        public string Url { get; set; }
+        public String Caption { get; set; }
+
+        public String Url { get; set; }
     }
 }

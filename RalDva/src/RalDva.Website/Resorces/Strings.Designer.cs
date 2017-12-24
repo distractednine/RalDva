@@ -96,6 +96,15 @@ namespace RalDva.Website.Resorces {
         }
         
         /// <summary>
+        ///    Looks up a localized string similar to Ral-Dva.
+        /// </summary>
+        public static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to Audiobooks.
         /// </summary>
         public static string Audiobooks {

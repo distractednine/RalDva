@@ -1,46 +1,83 @@
 ﻿import React from "react";
 import ReactDom from "react-dom";
+import PropTypes from "prop-types";
+
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from "react-bootstrap";
 
-const MainNavbar = React.createClass({
-    handleSelect(selectedKey) {
-        alert(`selected ${selectedKey}`);
-    },
+class MainNavbar extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            selectedCategory: "",
+            activityCategories: props.activityCategories
+        };
+    }
+
+    onActivitySelected(selectedCategory) {
+        this.setState({
+            selectedCategory: selectedCategory
+        });
+    }
+
+    onAddActivityClick() {
+        alert('onAddActivityClick');
+        return;
+    }
+
+    onActionClickDefault(eventKey) {
+        if (eventKey === 'Story') {
+            
+        }
+        if (eventKey === 'Plans') {
+            
+        }
+
+        alert(eventKey);
+    }
+
     render() {
-        const mainCategories = this.props.activityCategories.map((category) =>
-            <NavItem eventKey={category.name} href="/home">{category.name}</NavItem>
+        const mainCategories = this.state.activityCategories.map(
+            cat => <NavItem eventKey={cat.name} key={cat.name} href="/home">{cat.name}</NavItem>
         );
 
         return (
-            <Navbar inverse collapseOnSelect fluid>
-                <Navbar.Header className="nav-logo-img">
-                    <Navbar.Brand>
-                        <a href="#">
-                            <img src="/Content/logo2.png" />
-                        </a>
-                    </Navbar.Brand>
-                </Navbar.Header>
-                <Navbar.Collapse>
-                    <Nav bsStyle="tabs" justified activeKey={1} onSelect={this.handleSelect}>{mainCategories}</Nav>
-                    <Nav>
-                        <NavItem eventKey={1} href="#">Link</NavItem>
-                        <NavItem eventKey={2} href="#">Link</NavItem>
-                        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>Action</MenuItem>
-                            <MenuItem eventKey={3.2}>Another action</MenuItem>
-                            <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                            <MenuItem divider/>
-                            <MenuItem eventKey={3.3}>Separated link</MenuItem>
-                        </NavDropdown>
-                    </Nav>
-                    <Nav pullRight>
-                        <NavItem eventKey={1} href="#">Link Right</NavItem>
-                        <NavItem eventKey={2} href="#">Link Right</NavItem>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+            <div>
+                <Navbar inverse collapseOnSelect fluid>
+                    <Navbar.Header>
+                        <Navbar.Brand>
+                            <a href="#">Ral-Dva</a>
+                        </Navbar.Brand>
+                        <Navbar.Toggle/>
+                    </Navbar.Header>
+                    <Navbar.Collapse>
+                        <Nav bsStyle="tabs" justified activeKey={this.state.selectedCategory} onSelect={cat => this.onActivitySelected(cat)}>{mainCategories}</Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+
+                <Nav bsStyle="tabs" justified onSelect={this.onActionClickDefault}>
+                    <NavItem eventKey="Add" href="#">Add</NavItem>
+                    <NavItem eventKey="Story" href="#">Story</NavItem>
+                    <NavItem eventKey="Plans" href="#">Plans</NavItem>
+                    <NavItem eventKey="Activity" href="#">Activity</NavItem>
+                    <NavItem eventKey="Analitics" href="#">Analitics</NavItem>
+                    <NavDropdown title="User" id="nav-dropdown" pullRight>
+                        <MenuItem eventKey="Options">Options</MenuItem>
+                        <MenuItem divider/>
+                        <MenuItem eventKey="LogOut">Log out</MenuItem>
+                    </NavDropdown>
+                </Nav>
+            </div>
         );
     }
-});
+};
+
+MainNavbar.propTypes = {
+    activityCategories: PropTypes.array
+};
+
+MainNavbar.defaultProps = {
+    selectedCategory: ""
+};
 
 export default MainNavbar;

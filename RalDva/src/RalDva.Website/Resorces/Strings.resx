@@ -129,6 +129,9 @@
   <data name="Anime" xml:space="preserve">
     <value>Anime</value>
   </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Ral-Dva</value>
+  </data>
   <data name="Audiobooks" xml:space="preserve">
     <value>Audiobooks</value>
   </data>
