@@ -18,6 +18,6 @@ namespace RalDva.Website.Controllers
         {
             var model = _mainPageModelProvider.GetMainPageModel();
             return Ok(model);
-        }
+        }        
     }
 }

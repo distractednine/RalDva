@@ -28,15 +28,16 @@ react bootstap configuration
 
 add localized resources
 
+add navbar menu
 
+add toastr
 
+add SERVER RESPONSE HANDLER
 
 
 #todo:
 
-add navbar menu
-
-add toastr
+add state store
 
 adjust logo on navbar
 

@@ -21,16 +21,16 @@ class MainNavbar extends React.Component {
     }
 
     onAddActivityClick() {
-        alert('onAddActivityClick');
+        alert("onAddActivityClick");
         return;
     }
 
     onActionClickDefault(eventKey) {
-        if (eventKey === 'Story') {
-            
+        if (eventKey === "Story") {
+
         }
-        if (eventKey === 'Plans') {
-            
+        if (eventKey === "Plans") {
+
         }
 
         alert(eventKey);
@@ -42,7 +42,7 @@ class MainNavbar extends React.Component {
         );
 
         return (
-            <div>
+            <div >
                 <Navbar inverse collapseOnSelect fluid>
                     <Navbar.Header>
                         <Navbar.Brand>
@@ -51,21 +51,24 @@ class MainNavbar extends React.Component {
                         <Navbar.Toggle/>
                     </Navbar.Header>
                     <Navbar.Collapse>
-                        <Nav bsStyle="tabs" justified activeKey={this.state.selectedCategory} onSelect={cat => this.onActivitySelected(cat)}>{mainCategories}</Nav>
+                        <Nav bsStyle="pills" activeKey={this.state.selectedCategory} onSelect={cat => this.onActivitySelected(cat)}>{mainCategories}</Nav>
+                        <Nav pullRight>
+                            <NavDropdown title="User" id="nav-dropdown" pullRight>
+                                <MenuItem eventKey="Options">Options</MenuItem>
+                                <MenuItem divider/>
+                                <MenuItem eventKey="LogOut">Log out</MenuItem>
+                            </NavDropdown>
+                        </Nav>
                     </Navbar.Collapse>
+
                 </Navbar>
 
-                <Nav bsStyle="tabs" justified onSelect={this.onActionClickDefault}>
+                <Nav bsStyle="pills" justified onSelect={this.onActionClickDefault}>
                     <NavItem eventKey="Add" href="#">Add</NavItem>
                     <NavItem eventKey="Story" href="#">Story</NavItem>
                     <NavItem eventKey="Plans" href="#">Plans</NavItem>
                     <NavItem eventKey="Activity" href="#">Activity</NavItem>
                     <NavItem eventKey="Analitics" href="#">Analitics</NavItem>
-                    <NavDropdown title="User" id="nav-dropdown" pullRight>
-                        <MenuItem eventKey="Options">Options</MenuItem>
-                        <MenuItem divider/>
-                        <MenuItem eventKey="LogOut">Log out</MenuItem>
-                    </NavDropdown>
                 </Nav>
             </div>
         );
