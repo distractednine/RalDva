@@ -1,4 +1,6 @@
-﻿const validateCallbacks = (onSuccess, onError) => {
+﻿import Promise from 'es6-promise';
+
+const validateCallbacks = (onSuccess, onError) => {
     if (onSuccess && !(onSuccess instanceof Function)) {
         throw "invalid onSuccess callback";
     }

@@ -1,4 +1,4 @@
-﻿var endpoints = {
+﻿const endpoints = {
     getMainPageModel: '/api/infrastructure/GetMainPageModel'
 };
 

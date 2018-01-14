@@ -1,44 +1,38 @@
-﻿import React from 'react';
-import ReactDom from 'react-dom';
-import {ToastContainer} from "react-toastr";
+﻿// react
+import React from "react";
+import ReactDom from "react-dom";
 
-// test
-//import TestMenu from './test/testMenu.jsx';
-//import testData from './test/testData.jsx';
-import serverResponseTest from './test/serverResponseTest.js';
+// redux
+import { Provider } from "react-redux";
+
+import storeFactory from "./store/storeFactory.js";
 
 // components
-import MainNavbar from './components/MainNavbar.jsx';
+import MainNavbar from "./components/MainNavbar.jsx";
+import NotificationsHolder from "./components/NotificationsHolder.jsx";
+import TestComponent from "./components/TestComponent.jsx";
 
-// utils
-import dataservice from './utils/dataservice.js';
-import endpoints from './utils/endpoints.js';
-import serverResponseHandler from './utils/serverResponseHandler.js';
+(function () {
+    const App = () => {
+        return (
+            <div>
+                <MainNavbar/>
+                <NotificationsHolder/>
+                <TestComponent/>
+            </div>
+        );
+    };
 
-let mainVM, toastrContainer;
+    const renderApp = store => {
+        ReactDom.render(
+            <Provider store={store}>
+                <App />
+            </Provider>,
+            document.getElementById("react-container")
+        );
+    };
 
-let onSuccess = function (responseData)  {
-    mainVM = responseData;
+    const store = storeFactory();
 
-    ReactDom.render(
-        <div>
-            <MainNavbar activityCategories={mainVM.activityCategories} />
-            <ToastContainer ref={ref => toastrContainer = ref} className="toast-top-right"/>
-        </div>,
-        document.getElementById("react-container")
-    );
-
-    //var responseHandler = new serverResponseHandler(toastrContainer);
-    //responseHandler.handleServerError("");    
-
-    let sResponseTest = new serverResponseTest(toastrContainer);
-    sResponseTest.testGet();
-    sResponseTest.testPost();
-
-};
-
-let onError = function (response) {
-    alert("Error occurred!");
-};
-
-dataservice.get(endpoints.getMainPageModel, onSuccess, onError);
+    renderApp(store);
+}());

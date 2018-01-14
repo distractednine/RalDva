@@ -2,27 +2,25 @@
 import ReactDom from "react-dom";
 import PropTypes from "prop-types";
 
+import { connect } from 'react-redux';
+
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from "react-bootstrap";
+
+// actions
+import activityActions from "../actions/activityActions.js";
+import commonActions from "../actions/commonActions.js";
+
+// utils
+import endpoints from "../utils/endpoints.js";
+import enums from "../utils/enums.js";
 
 class MainNavbar extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            selectedCategory: "",
-            activityCategories: props.activityCategories
-        };
     }
 
-    onActivitySelected(selectedCategory) {
-        this.setState({
-            selectedCategory: selectedCategory
-        });
-    }
-
-    onAddActivityClick() {
-        alert("onAddActivityClick");
-        return;
+    componentDidMount() {
+        this.props.requestActivitiesFroApi();
     }
 
     onActionClickDefault(eventKey) {
@@ -37,8 +35,8 @@ class MainNavbar extends React.Component {
     }
 
     render() {
-        const mainCategories = this.state.activityCategories.map(
-            cat => <NavItem eventKey={cat.name} key={cat.name} href="/home">{cat.name}</NavItem>
+        const mainCategories = this.props.activities.map(
+            act => <NavItem eventKey={act.name} key={act.name} href="/home">{act.name}</NavItem>
         );
 
         return (
@@ -51,7 +49,7 @@ class MainNavbar extends React.Component {
                         <Navbar.Toggle/>
                     </Navbar.Header>
                     <Navbar.Collapse>
-                        <Nav bsStyle="pills" activeKey={this.state.selectedCategory} onSelect={cat => this.onActivitySelected(cat)}>{mainCategories}</Nav>
+                        <Nav bsStyle="pills" activeKey={this.props.selectedActivity} onSelect={cat => this.props.onActivitySelected(cat)}>{mainCategories}</Nav>
                         <Nav pullRight>
                             <NavDropdown title="User" id="nav-dropdown" pullRight>
                                 <MenuItem eventKey="Options">Options</MenuItem>
@@ -76,11 +74,41 @@ class MainNavbar extends React.Component {
 };
 
 MainNavbar.propTypes = {
-    activityCategories: PropTypes.array
+    activities: PropTypes.array,
+    selectedActivity: PropTypes.string
 };
 
 MainNavbar.defaultProps = {
-    selectedCategory: ""
+    activities: [],
+    selectedActivity: ''
 };
 
-export default MainNavbar;
+const mapStateToProps = (state) => {
+    return {
+        activities: state.activity.activities,
+        selectedActivity: state.activity.selectedActivity
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        requestActivitiesFroApi: () => {
+            const successActionCreator = (responseData) => {
+                return activityActions.setActivities(responseData.activityCategories);
+            };
+
+            const action = commonActions.callApiGet(endpoints.getMainPageModel,
+                successActionCreator,
+                enums.failedToPerformInitialDataLoading);
+
+            dispatch(action);
+        },
+        onActivitySelected: (selectedActivity) => {
+            const action = activityActions.setSelectedActivity(selectedActivity);
+
+            dispatch(action);
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainNavbar);

@@ -6,7 +6,7 @@
     "react": "15.6.2",
     "react-dom": "15.6.2",
     "react-bootstrap": "^0.31.5",
-    "prop-types": "15.6.0",
+    "prop-types": "^15.5.7",
     "react-toastr": "git://github.com/tomchentw/react-toastr#master"
   },
   "dependencies": {
@@ -14,7 +14,10 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "es6-promise": "4.2.0",
     "react-toastr": "git+https://github.com/tomchentw/react-toastr.git",
+    "redux": "^3.7.2",
+    "react-redux": "5.0.3",
     "webpack": "^3.10.0"
   }
 }

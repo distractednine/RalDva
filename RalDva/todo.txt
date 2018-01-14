@@ -32,16 +32,34 @@ add navbar menu
 
 add toastr
 
+add js logger
+
 add SERVER RESPONSE HANDLER
+
+add state store
+
+add outer App component
+
+todo - make MainNavbar render an empty array OF `activityCategories` before ajax request on server. then fill it with actual data. 
+
+subscribe to toastr container in TestComponent and run 2 tests
+
+make MainNavbar render an empty array OF `activityCategories` before ajax request on server. then fill it with actual data. 
+
+subscribe to toastr container in TestComponent and run 2 tests
+
+
 
 
 #todo:
 
-add state store
+add resources from initial call to redux state!
 
-adjust logo on navbar
+add routes based on selected tab and hash path
 
-add js logger
+select anime route by default
+
+add filter panel on right + links
 
 4) logging, config reading\writing
 
@@ -49,7 +67,7 @@ add js logger
 
 6) frontend login implementation
 
-7) fake backend login iinfrastructure
+7) fake backend login infrastructure
 
 8) db for activities
 
@@ -100,3 +118,12 @@ add js logger
 28) Add functionality to search for A or movies Ost samples on soundcloud - Be\Fe
 
 29) Add functionality to view countdowns till new season - episode release
+
+
+
+
+#rejected:
+
+adjust logo on navbar
+
+add this logger to js logic https://github.com/jonnyreeves/js-logger
