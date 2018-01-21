@@ -1,19 +1,23 @@
 ﻿import actionNames from '../actions/actionNames.js';
-import commonActions from "../actions/commonActions.js";
+import apiCommunicationActions from "../actions/apiCommunicationActions.js";
 import dataservice from "../utils/dataservice.js";
 
 const getOnSuccessCallback = (dispatch, actionCreator) => {
     return data => {
         const action = actionCreator(data);
 
-        dispatch(action);
+        if (Array.isArray(action)) {
+            action.forEach(actn => dispatch(actn));
+        } else {
+            dispatch(action);
+        }
     };
 };
 
 const getOnFailureCallback = (dispatch, errorMessage) => {
     return serverResponse => {
         const serverResponseString = getServerResponseString(serverResponse);
-        const action = commonActions.callApiError(errorMessage, serverResponseString);
+        const action = apiCommunicationActions.callApiError(errorMessage, serverResponseString);
         
         dispatch(action);
     };
@@ -29,12 +33,9 @@ const getServerResponseString = (serverResponse) => {
     return serverResponse;
 };
 
-const apiCommunicationMiddleware = (store) => next => action => {
+const apiCommunicationMiddleware = ({dispatch}) => next => action => {
     const { payload } = action;
     let onSuccess, onFailure;
-
-    var dispatch = store.dispatch;
-    var strTemp = store;
 
     switch (action.type) {
         case actionNames.callApiGet:

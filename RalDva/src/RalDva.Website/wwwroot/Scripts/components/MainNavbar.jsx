@@ -9,10 +9,29 @@ import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from "react-bootstrap";
 // actions
 import activityActions from "../actions/activityActions.js";
 import commonActions from "../actions/commonActions.js";
+import apiCommunicationActions from "../actions/apiCommunicationActions.js";
 
 // utils
 import endpoints from "../utils/endpoints.js";
 import enums from "../utils/enums.js";
+
+const ActionMenu = (props) => {
+    return props.resources ?
+        (
+            <Nav bsStyle="pills" justified onSelect={props.onClick}>
+                <NavItem eventKey="Add" href="#">{props.resources.Add}</NavItem>
+                <NavItem eventKey="Story" href="#">{props.resources.Story}</NavItem>
+                <NavItem eventKey="Plans" href="#">{props.resources.Plans}</NavItem>
+                <NavItem eventKey="Activity" href="#">{props.resources.Activity}</NavItem>
+                <NavItem eventKey="Analitics" href="#">{props.resources.Analitics}</NavItem>
+            </Nav>
+        )
+        : (
+            <Nav bsStyle="pills" justified>
+                <NavItem href="#"></NavItem>
+            </Nav>
+        );
+};
 
 class MainNavbar extends React.Component {
     constructor(props) {
@@ -60,14 +79,7 @@ class MainNavbar extends React.Component {
                     </Navbar.Collapse>
 
                 </Navbar>
-
-                <Nav bsStyle="pills" justified onSelect={this.onActionClickDefault}>
-                    <NavItem eventKey="Add" href="#">Add</NavItem>
-                    <NavItem eventKey="Story" href="#">Story</NavItem>
-                    <NavItem eventKey="Plans" href="#">Plans</NavItem>
-                    <NavItem eventKey="Activity" href="#">Activity</NavItem>
-                    <NavItem eventKey="Analitics" href="#">Analitics</NavItem>
-                </Nav>
+                <ActionMenu resources={this.props.resources} onClick={this.onActionClickDefault}/>
             </div>
         );
     }
@@ -86,7 +98,8 @@ MainNavbar.defaultProps = {
 const mapStateToProps = (state) => {
     return {
         activities: state.activity.activities,
-        selectedActivity: state.activity.selectedActivity
+        selectedActivity: state.activity.selectedActivity,
+        resources: state.common.resources
     };
 };
 
@@ -94,10 +107,13 @@ const mapDispatchToProps = dispatch => {
     return {
         requestActivitiesFroApi: () => {
             const successActionCreator = (responseData) => {
-                return activityActions.setActivities(responseData.activityCategories);
+                return [
+                    activityActions.setActivities(responseData.activityCategories),
+                    commonActions.setResources(responseData.resourceStrings)
+                ];
             };
 
-            const action = commonActions.callApiGet(endpoints.getMainPageModel,
+            const action = apiCommunicationActions.callApiGet(endpoints.getMainPageModel,
                 successActionCreator,
                 enums.failedToPerformInitialDataLoading);
 

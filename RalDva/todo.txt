@@ -48,12 +48,12 @@ make MainNavbar render an empty array OF `activityCategories` before ajax reques
 
 subscribe to toastr container in TestComponent and run 2 tests
 
+move commonActions' content to apiCommunicationActions and reducer as well!!
 
+add resources from initial call to redux state!
 
 
 #todo:
-
-add resources from initial call to redux state!
 
 add routes based on selected tab and hash path
 

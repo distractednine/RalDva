@@ -1,42 +1,17 @@
 ﻿import actionNames from './actionNames.js';
 
-const callApiGet = (url, onSuccessActionCreator, errorMessage) => {
+const setResources = (resources) => {
     return {
-        type: actionNames.callApiGet,
+        type: actionNames.setResources,
         payload: {
-            url,
-            onSuccessActionCreator,
-            errorMessage
+            resources
         }
     };
 };
 
-const callApiPost = (url, onSuccessActionCreator, dataToPost, errorMessage) => {
-    return {
-        type: actionNames.callApiPost,
-        payload: {
-            url,
-            onSuccessActionCreator,
-            dataToPost,
-            errorMessage
-        }
-    };
-};
-
-const callApiError = (errorMessage, serverResponse) => {
-    return {
-        type: actionNames.callApiError,
-        payload: {
-            errorMessage,
-            serverResponse
-        }
-    };
-};
 
 const commonActions = {
-    callApiGet,
-    callApiPost,
-    callApiError
+    setResources
 };
 
 export default commonActions;

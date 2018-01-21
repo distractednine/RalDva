@@ -3,6 +3,7 @@
 // reducers 
 import notification from "../reducers/notificationReducer.js";
 import activity from "../reducers/activityReducer.js";
+import common from "../reducers/commonReducer.js";
 
 // middleware
 import apiCommunicationMiddleware from "../middleware/apiCommunicationMiddleware.js";
@@ -16,7 +17,8 @@ export default () => {
 
     const reducers = {
         activity,
-        notification
+        notification,
+        common
     };
 
     const combinedReducers = combineReducers(reducers);

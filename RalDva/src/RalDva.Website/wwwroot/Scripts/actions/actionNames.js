@@ -1,5 +1,5 @@
 ﻿export default {
-    // common
+    // api communication
     callApiGet: 'CallApiGet',
     callApiPost: 'CallApiPost',
     callApiError: 'CallApiError',
@@ -10,5 +10,8 @@
 
     // notifications
     setNotificationContainer: 'SetNotificationContainer',
-    showNotification: 'ShowNotification'
+    showNotification: 'ShowNotification',
+
+    // common
+    setResources: 'SetResources'
 };

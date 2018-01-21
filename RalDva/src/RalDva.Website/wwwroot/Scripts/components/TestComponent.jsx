@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import { connect } from "react-redux";
 
-import commonActions from "../actions/commonActions.js";
+import apiCommunicationActions from "../actions/apiCommunicationActions.js";
 import notificationActions from "../actions/notificationActions.js";
 
 import enums from '../utils/enums.js';
@@ -37,13 +37,13 @@ const mapDispatchToProps = dispatch => {
         },
         testErrorOnGet: () => {
             const successActionCreator = () => {};
-            const action = commonActions.callApiGet('/api/test/GetBadRequest', successActionCreator, 'error on get');
+            const action = apiCommunicationActions.callApiGet('/api/test/GetBadRequest', successActionCreator, 'error on get');
 
             dispatch(action);
         },
         testErrorOnPost: () => {
             const successActionCreator = () => {};
-            const action = commonActions.callApiPost('/api/test/GetInternalServerError', {}, successActionCreator, 'error on post');
+            const action = apiCommunicationActions.callApiPost('/api/test/GetInternalServerError', {}, successActionCreator, 'error on post');
 
             dispatch(action);
         }
