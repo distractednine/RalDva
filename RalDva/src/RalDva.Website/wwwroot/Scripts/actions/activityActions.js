@@ -22,9 +22,19 @@ const setSelectedActivity = (selectedActivity ) => {
     };
 };
 
+const setSelectedAction = (selectedAction ) => {
+    return {
+        type: actionNames.setSelectedAction,
+        payload: {
+            selectedAction
+        }
+    };
+};
+
 const activityActions = {
     setActivities,
-    setSelectedActivity
+    setSelectedActivity,
+    setSelectedAction
 };
 
 export default activityActions;

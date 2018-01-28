@@ -9,13 +9,13 @@ namespace RalDva.Website.DataProviders
 {
     internal class MainPageModelProvider: IMainPageModelProvider
     {
-        public ICollection<String> SupportedActivities => new [] {"Anime", "AudioBook", "Book", "Movie", "Ranobe", "TvSeries"};
+        public ICollection<String> SupportedActivities => new [] {"Anime", "Audiobooks", "Books", "Movies", "Ranobe", "TvSeries"};
 
         public MainPageModel GetMainPageModel()
         {
             var categories = SupportedActivities.Select(x => new ActivityCategory
             {
-                Name = x,
+                Name = x.ToLowerInvariant(),
                 Caption = ResourceHelper.GetString(x),
                 Url = ""
             }).ToArray();

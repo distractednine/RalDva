@@ -52,12 +52,20 @@ move commonActions' content to apiCommunicationActions and reducer as well!!
 
 add resources from initial call to redux state!
 
-
-#todo:
-
 add routes based on selected tab and hash path
 
 select anime route by default
+
+refactor main menu to a separate component!
+
+
+#todo:
+
+improve routes at backend to support frontend routing - add appropriate handler
+
+add localzation for Main Navbar options, log out nested menu items
+
+add AddActivity form + infrastructure + validation
 
 add filter panel on right + links
 

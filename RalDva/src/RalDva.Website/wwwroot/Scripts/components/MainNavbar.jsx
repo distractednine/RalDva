@@ -6,6 +6,12 @@ import { connect } from 'react-redux';
 
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from "react-bootstrap";
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+
 // actions
 import activityActions from "../actions/activityActions.js";
 import commonActions from "../actions/commonActions.js";
@@ -14,24 +20,6 @@ import apiCommunicationActions from "../actions/apiCommunicationActions.js";
 // utils
 import endpoints from "../utils/endpoints.js";
 import enums from "../utils/enums.js";
-
-const ActionMenu = (props) => {
-    return props.resources ?
-        (
-            <Nav bsStyle="pills" justified onSelect={props.onClick}>
-                <NavItem eventKey="Add" href="#">{props.resources.Add}</NavItem>
-                <NavItem eventKey="Story" href="#">{props.resources.Story}</NavItem>
-                <NavItem eventKey="Plans" href="#">{props.resources.Plans}</NavItem>
-                <NavItem eventKey="Activity" href="#">{props.resources.Activity}</NavItem>
-                <NavItem eventKey="Analitics" href="#">{props.resources.Analitics}</NavItem>
-            </Nav>
-        )
-        : (
-            <Nav bsStyle="pills" justified>
-                <NavItem href="#"></NavItem>
-            </Nav>
-        );
-};
 
 class MainNavbar extends React.Component {
     constructor(props) {
@@ -42,45 +30,39 @@ class MainNavbar extends React.Component {
         this.props.requestActivitiesFroApi();
     }
 
-    onActionClickDefault(eventKey) {
-        if (eventKey === "Story") {
-
-        }
-        if (eventKey === "Plans") {
-
-        }
-
-        alert(eventKey);
+    getLink(actionName) {
+        return `/${actionName}/${this.props.selectedAction}`;
     }
 
     render() {
         const mainCategories = this.props.activities.map(
-            act => <NavItem eventKey={act.name} key={act.name} href="/home">{act.name}</NavItem>
+            act =>
+                <li key={act.name} role="presentation" className={this.props.selectedActivity === act.name ? 'active' : '' }>
+                    <Link to={this.getLink(act.name)} onClick={() => this.props.onActivitySelected(act.name)}>
+                        {act.caption}
+                    </Link>
+                </li>
         );
 
-        return (
-            <div >
-                <Navbar inverse collapseOnSelect fluid>
-                    <Navbar.Header>
-                        <Navbar.Brand>
-                            <a href="#">Ral-Dva</a>
-                        </Navbar.Brand>
-                        <Navbar.Toggle/>
-                    </Navbar.Header>
-                    <Navbar.Collapse>
-                        <Nav bsStyle="pills" activeKey={this.props.selectedActivity} onSelect={cat => this.props.onActivitySelected(cat)}>{mainCategories}</Nav>
-                        <Nav pullRight>
-                            <NavDropdown title="User" id="nav-dropdown" pullRight>
-                                <MenuItem eventKey="Options">Options</MenuItem>
-                                <MenuItem divider/>
-                                <MenuItem eventKey="LogOut">Log out</MenuItem>
-                            </NavDropdown>
-                        </Nav>
-                    </Navbar.Collapse>
-
-                </Navbar>
-                <ActionMenu resources={this.props.resources} onClick={this.onActionClickDefault}/>
-            </div>
+        return (           
+            <Navbar inverse collapseOnSelect fluid>
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <a href="#">Ral-Dva</a>
+                    </Navbar.Brand>
+                    <Navbar.Toggle/>
+                </Navbar.Header>
+                <Navbar.Collapse>
+                    <ul className="nav nav-pills navbar-nav">{mainCategories}</ul>
+                    <Nav pullRight>
+                        <NavDropdown title="User" id="nav-dropdown" pullRight>
+                            <MenuItem eventKey="Options">Options</MenuItem>
+                            <MenuItem divider/>
+                            <MenuItem eventKey="LogOut">Log out</MenuItem>
+                        </NavDropdown>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>                            
         );
     }
 };
@@ -99,6 +81,7 @@ const mapStateToProps = (state) => {
     return {
         activities: state.activity.activities,
         selectedActivity: state.activity.selectedActivity,
+        selectedAction: state.activity.selectedAction,
         resources: state.common.resources
     };
 };
@@ -109,7 +92,8 @@ const mapDispatchToProps = dispatch => {
             const successActionCreator = (responseData) => {
                 return [
                     activityActions.setActivities(responseData.activityCategories),
-                    commonActions.setResources(responseData.resourceStrings)
+                    commonActions.setResources(responseData.resourceStrings),
+                    activityActions.setSelectedActivity(responseData.activityCategories[0].name)
                 ];
             };
 

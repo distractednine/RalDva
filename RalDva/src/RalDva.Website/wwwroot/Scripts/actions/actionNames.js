@@ -7,6 +7,7 @@
     // activities
     setActivities: 'SetActivities',
     setSelectedActivity: 'SetSelectedActivity',
+    setSelectedAction: 'SetSelectedAction',
 
     // notifications
     setNotificationContainer: 'SetNotificationContainer',
