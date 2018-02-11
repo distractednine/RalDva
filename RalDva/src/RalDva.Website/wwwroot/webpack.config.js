@@ -33,7 +33,8 @@ module.exports = {
                 exclude: /(node_modules)/,
                 loader: "babel-loader",
                 query: {
-                    presets: ['env', 'stage-0', 'react']
+                    presets: ['env', 'stage-0', 'react'],
+                    plugins: ["emotion"]
                 }
             },
             {
@@ -45,9 +46,9 @@ module.exports = {
                     plugins: ['babel-plugin-transform-es2015-arrow-functions', 'transform-class-properties']
                 }
             }
-            //,
-            //{
+            //,{
             //    test: /\.css$/,
+            //    exclude: /(node_modules)/,
             //    use: ['style-loader', 'css-loader', {
             //        loader: 'postcss-loader',
             //        options: {

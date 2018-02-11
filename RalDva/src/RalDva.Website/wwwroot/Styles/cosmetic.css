@@ -1,26 +1,12 @@
 ﻿
-/*.navbar-brand {
-  display: flex;
-  align-items: center;
-}
-.navbar-brand>img {
-  padding: 7px 14px;
-}*/
-
-/*.nav-logo {
-  float: left !important;
-  margin-top: -15px !important;
-}*/
-
 .nav-logo-img {
     width: 75px;
     height: 75px;
 }
 
-/*.pull-right {
-  padding-right: 15px;
-  padding-left: 0;
-  text-align: right;
-  border-right: 5px solid #eee;
-  border-left: 0;
-}*/
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+

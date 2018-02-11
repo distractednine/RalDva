@@ -1,3 +1,8 @@
+sql server name: home-pc\sqlexpress
+
+
+
+
 #done:
 
 1) Mvc infrastructure
@@ -58,10 +63,17 @@ select anime route by default
 
 refactor main menu to a separate component!
 
++ clear node_modules and perform npm i, webpack 
+
+use react router switch component to render one component at time!
+
+improve routes at backend to support frontend routing - add appropriate filter
+
++ deal with webpack ccs loader and loading spinner - install css loader
+
+
 
 #todo:
-
-improve routes at backend to support frontend routing - add appropriate handler
 
 add localzation for Main Navbar options, log out nested menu items
 

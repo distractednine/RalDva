@@ -6,7 +6,7 @@ import ReactDom from "react-dom";
 import { Provider } from "react-redux";
 
 // react-router
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 
 import storeFactory from "./store/storeFactory.js";
@@ -16,6 +16,7 @@ import MainNavbar from "./components/MainNavbar.jsx";
 import MainActionMenu from "./components/MainActionMenu.jsx";
 import NotificationsHolder from "./components/NotificationsHolder.jsx";
 import FourOuFour from "./components/FourOuFour.jsx";
+import LoadingRedirect from "./components/LoadingRedirect.jsx";
 import TestComponent from "./test/TestComponent.jsx";
 
 (function () {
@@ -29,6 +30,7 @@ import TestComponent from "./test/TestComponent.jsx";
         );
     };
 
+    // temp
     const HiComponent = () => {
         return (
             <div className="text-center">
@@ -45,12 +47,14 @@ import TestComponent from "./test/TestComponent.jsx";
                 <Router>
                     <div>
                         <App/>
-                        <Route path="/" component={HiComponent} />
-                        <Route path="/:activity/story" component={HiComponent} />
-                        <Route path="/:activity/plans" component={FourOuFour}/>
-                        <Route path="/:activity/activity" component={TestComponent}/>
-                        <Route path="/:activity/analitics" component={TestComponent}/>
-                        <Route component={FourOuFour}/>
+                        <Switch>
+                            <Route exact path="/" component={LoadingRedirect} />
+                            <Route path="/:activity/story" component={HiComponent} />
+                            <Route path="/:activity/plans" component={FourOuFour}/>
+                            <Route path="/:activity/activity" component={TestComponent}/>
+                            <Route path="/:activity/analitics" component={TestComponent}/>
+                            <Route component={FourOuFour}/>
+                        </Switch>                        
                     </div>
                 </Router>
             </Provider>,

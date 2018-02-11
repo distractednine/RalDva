@@ -161,9 +161,9 @@ namespace RalDva.Website.Resorces {
         /// <summary>
         ///    Looks up a localized string similar to Tv series.
         /// </summary>
-        public static string TvSeries {
+        public static string Tvseries {
             get {
-                return ResourceManager.GetString("TvSeries", resourceCulture);
+                return ResourceManager.GetString("Tvseries", resourceCulture);
             }
         }
     }

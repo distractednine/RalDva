@@ -150,7 +150,7 @@
   <data name="Story" xml:space="preserve">
     <value>Story</value>
   </data>
-  <data name="TvSeries" xml:space="preserve">
+  <data name="Tvseries" xml:space="preserve">
     <value>Tv series</value>
   </data>
 </root>
