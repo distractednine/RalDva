@@ -1,10 +1,12 @@
-﻿import React from "react";
+﻿// react
+import React from "react";
 import ReactDom from "react-dom";
 import PropTypes from "prop-types";
 
 import { connect } from 'react-redux';
 
-import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from "react-bootstrap";
+// react-bootstrap
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
 
 import {
   BrowserRouter as Router,
@@ -65,7 +67,7 @@ class MainNavbar extends React.Component {
             </Navbar>                            
         );
     }
-};
+}
 
 MainNavbar.propTypes = {
     activities: PropTypes.array,

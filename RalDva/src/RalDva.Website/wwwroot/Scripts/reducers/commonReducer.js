@@ -14,6 +14,11 @@ export default (state = {}, action) => {
 
             return {...state, resources};
 
+        case actionNames.openAddActivityForm:
+            var {isAddActivityFormOpen} = action.payload;
+
+            return {...state, isAddActivityFormOpen};
+
         default:
             return state;
     }

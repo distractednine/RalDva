@@ -17,6 +17,7 @@ import MainActionMenu from "./components/MainActionMenu.jsx";
 import NotificationsHolder from "./components/NotificationsHolder.jsx";
 import FourOuFour from "./components/FourOuFour.jsx";
 import LoadingRedirect from "./components/LoadingRedirect.jsx";
+import AddActivityForm from "./components/AddActivityForm.jsx";
 import TestComponent from "./test/TestComponent.jsx";
 
 (function () {
@@ -26,6 +27,7 @@ import TestComponent from "./test/TestComponent.jsx";
                 <MainNavbar/>
                 <MainActionMenu/>
                 <NotificationsHolder/>
+                <AddActivityForm/>
             </div>
         );
     };

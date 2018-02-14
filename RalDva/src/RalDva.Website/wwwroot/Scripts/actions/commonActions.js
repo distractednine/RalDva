@@ -9,9 +9,18 @@ const setResources = (resources) => {
     };
 };
 
+const openAddActivityForm = (isAddActivityFormOpen) => {
+    return {
+        type: actionNames.openAddActivityForm,
+        payload: {
+            isAddActivityFormOpen
+        }
+    };
+};
 
 const commonActions = {
-    setResources
+    setResources,
+    openAddActivityForm
 };
 
 export default commonActions;

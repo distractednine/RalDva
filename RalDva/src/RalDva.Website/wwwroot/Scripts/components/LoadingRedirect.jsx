@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom';
 
 import { BounceLoader } from 'react-spinners';
 
+// react-bootstrap
 import { Grid, Row, Col, NavDropdown, MenuItem } from "react-bootstrap";
 
 import enums from "../utils/enums.js";
@@ -41,7 +42,7 @@ class LoadingRedirect extends React.Component {
                 this.renderIsLoading() 
             );
     };
-};
+}
 
 const mapStateToProps = (state) => {
     return {

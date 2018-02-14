@@ -14,5 +14,6 @@
     showNotification: 'ShowNotification',
 
     // common
-    setResources: 'SetResources'
+    setResources: 'SetResources',
+    openAddActivityForm: 'OpenAddActivityForm'
 };

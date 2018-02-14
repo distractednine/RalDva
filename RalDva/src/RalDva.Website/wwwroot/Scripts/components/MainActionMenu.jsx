@@ -3,23 +3,18 @@ import React from "react";
 import ReactDom from "react-dom";
 import { connect } from 'react-redux';
 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // actions
 import activityActions from "../actions/activityActions.js";
+import commonActions from "../actions/commonActions.js";
 
 // utils
 import enums from "../utils/enums.js";
 
-
 class MainActionMenu extends React.Component {
     constructor(props) {
         super(props);
-    }
-
-    onAddActionClick(data) {
-        var e = data;
-        alert('add button clicked!');
     }
 
     getLink(actionName) {
@@ -53,7 +48,7 @@ class MainActionMenu extends React.Component {
             (
                 <ul className="nav nav-pills nav-justified">
                    <li role="presentation">
-                       <a href="#" role="button" onClick={this.onAddActionClick}>Add</a>
+                        <a href="#" role="button" onClick={this.props.onAddActivityClick}>{this.props.resources['add']}</a>
                    </li>
                        {
                            enums.routeActionNames.map(
@@ -64,7 +59,7 @@ class MainActionMenu extends React.Component {
             ) :
             this.getEmptyActions();
     }
-};
+}
 
 const mapStateToProps = (state) => {
     return {
@@ -78,6 +73,11 @@ const mapDispatchToProps = dispatch => {
     return {
         onActionSelected: (selectedAction) => {
             const action = activityActions.setSelectedAction(selectedAction);
+
+            dispatch(action);
+        },
+        onAddActivityClick: () => {
+            const action = commonActions.openAddActivityForm(true);
 
             dispatch(action);
         }
