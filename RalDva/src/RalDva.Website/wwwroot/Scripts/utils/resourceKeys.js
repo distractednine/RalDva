@@ -1,10 +1,11 @@
-﻿const resouceKeys = {
+﻿const resourceKeys = {
     add: "Add",
     story: "Story",
     plans: "Plans",
     activity: "Activity",
     analitics: "Analitics",
-    appName: "AppName"
+    appName: "AppName",
+    singleSuffix: "single"
 };
 
-export default resouceKeys;
+export default resourceKeys;

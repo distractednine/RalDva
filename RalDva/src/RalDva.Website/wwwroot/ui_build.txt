@@ -4,10 +4,6 @@ cmd
 
 run -> npm install
 
-run -> npm install webpack babel-loader babel-preset-env babel-preset-react babel-preset-stage-0
-
-run- > npm install style-loader css-loader postcss-loader
-
 run -> webpack
 
 
@@ -18,4 +14,25 @@ run -> webpack
 webpack --display-error-details
 
 
+webpack - transpilers:
+
+run -> npm install webpack babel-loader babel-preset-env babel-preset-react babel-preset-stage-0
+
+run- > npm install style-loader css-loader postcss-loader
+
+
 http://localhost:43546/api/infrastructure/GetMainPageModel
+
+
+
+git:
+
+- get specific branch version: C:\Users\User1\Source\Repos\RalDva\RalDva\src\RalDva.Website>git reset --hard c613c846
+
+- get latest branch version (delete the current version beforehand): C:\Users\User1\Source\Repos>git clone https://github.com/distractednine/RalDva.git
+
+
+
+error handling:
+
+-  "tsc.exe" exited with code 1 - delete and redownload solution from github 

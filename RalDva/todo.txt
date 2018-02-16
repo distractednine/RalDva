@@ -71,15 +71,31 @@ improve routes at backend to support frontend routing - add appropriate filter
 
 + deal with webpack ccs loader and loading spinner - install css loader
 
+add AddActivity form + infrastructure
+
 
 
 #todo:
 
-add localzation for Main Navbar options, log out nested menu items
+add details json prop to ef ActivityEntityBase entity
 
-add AddActivity form + infrastructure + validation
+add PanelGroup, Panel controls on form
+
+localize inputs on Add anime form
+
+add select 2, datetimepicker FE packages
+
+add add anime from + validation
+
+add wa parsing, ral 2 search
+
+WA api:
+
+http://www.world-art.ru/search.php?public_search=evangelion&global_sector=animation
 
 add filter panel on right + links
+
+add localzation for Main Navbar options, log out nested menu items
 
 4) logging, config reading\writing
 
@@ -138,6 +154,8 @@ add filter panel on right + links
 28) Add functionality to search for A or movies Ost samples on soundcloud - Be\Fe
 
 29) Add functionality to view countdowns till new season - episode release
+
+add game activity type??
 
 
 

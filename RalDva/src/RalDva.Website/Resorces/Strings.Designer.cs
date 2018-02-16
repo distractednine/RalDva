@@ -96,6 +96,15 @@ namespace RalDva.Website.Resorces {
         }
         
         /// <summary>
+        ///    Looks up a localized string similar to Anime.
+        /// </summary>
+        public static string AnimeSingle {
+            get {
+                return ResourceManager.GetString("AnimeSingle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to Ral-Dva.
         /// </summary>
         public static string AppName {
@@ -114,11 +123,29 @@ namespace RalDva.Website.Resorces {
         }
         
         /// <summary>
+        ///    Looks up a localized string similar to Audio Book.
+        /// </summary>
+        public static string AudiobooksSingle {
+            get {
+                return ResourceManager.GetString("AudiobooksSingle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to Books.
         /// </summary>
         public static string Books {
             get {
                 return ResourceManager.GetString("Books", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///    Looks up a localized string similar to Book.
+        /// </summary>
+        public static string BooksSingle {
+            get {
+                return ResourceManager.GetString("BooksSingle", resourceCulture);
             }
         }
         
@@ -132,11 +159,29 @@ namespace RalDva.Website.Resorces {
         }
         
         /// <summary>
+        ///    Looks up a localized string similar to Create new.
+        /// </summary>
+        public static string CreateNew {
+            get {
+                return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to Movies.
         /// </summary>
         public static string Movies {
             get {
                 return ResourceManager.GetString("Movies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///    Looks up a localized string similar to Movie.
+        /// </summary>
+        public static string MoviesSingle {
+            get {
+                return ResourceManager.GetString("MoviesSingle", resourceCulture);
             }
         }
         
@@ -159,6 +204,15 @@ namespace RalDva.Website.Resorces {
         }
         
         /// <summary>
+        ///    Looks up a localized string similar to Ranobe.
+        /// </summary>
+        public static string RanobeSingle {
+            get {
+                return ResourceManager.GetString("RanobeSingle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to Story.
         /// </summary>
         public static string Story {
@@ -168,11 +222,29 @@ namespace RalDva.Website.Resorces {
         }
         
         /// <summary>
+        ///    Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Submit {
+            get {
+                return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to Tv series.
         /// </summary>
         public static string Tvseries {
             get {
                 return ResourceManager.GetString("Tvseries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///    Looks up a localized string similar to Tvseries.
+        /// </summary>
+        public static string TvseriesSingle {
+            get {
+                return ResourceManager.GetString("TvseriesSingle", resourceCulture);
             }
         }
     }
