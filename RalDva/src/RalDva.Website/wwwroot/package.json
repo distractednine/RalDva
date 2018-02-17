@@ -6,8 +6,7 @@
     "react": "15.6.2",
     "react-dom": "15.6.2",
     "react-bootstrap": "^0.31.5",
-    "prop-types": "15.5.7",
-    "react-toastr": "git://github.com/tomchentw/react-toastr#master"
+    "prop-types": "15.5.7"
   },
   "dependencies": {
     "babel-loader": "^7.1.2",
@@ -16,11 +15,14 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.9",
     "es6-promise": "4.2.0",
+    "moment": "^2.20.1",
     "postcss-loader": "^2.1.0",
     "react-redux": "5.0.3",
     "react-router-dom": "4.1.1",
     "react-spinners": "^0.2.6",
-    "react-toastr": "git+https://github.com/tomchentw/react-toastr.git",
+    "react-toastr": "^3.0.0",
+    "react-widgets": "^4.2.0",
+    "react-widgets-moment": "^4.0.7",
     "redux": "3.7.2",
     "style-loader": "^0.20.1",
     "webpack": "3.10.0"

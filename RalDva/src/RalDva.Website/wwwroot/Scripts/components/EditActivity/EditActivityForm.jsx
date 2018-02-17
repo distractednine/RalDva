@@ -7,17 +7,17 @@ import { connect } from 'react-redux';
 // react-bootstrap
 import { Modal, Button } from "react-bootstrap";
 
-// components
+// actions
 import commonActions from "../../actions/commonActions.js";
 
-// actions
-import AddNewAnime from "./AddNewAnime.jsx";
+// components
+import EditAnime from "./EditAnime.jsx";
 
 // utils
 import resourceKeys from "../../utils/resourceKeys.js";
 import enums from "../../utils/enums.js";
 
-class AddActivityForm extends React.Component {
+class EditActivityForm extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -35,7 +35,7 @@ class AddActivityForm extends React.Component {
     getInnerComponent() {
         switch(this.props.selectedActivity) {
             case enums.activityTypes.anime:
-                return <AddNewAnime/>;
+                return <EditAnime/>;
 
             default:
                 var txt = `form for adding ${this.props.selectedActivity} has not been implemented yet`;
@@ -87,4 +87,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddActivityForm);
+export default connect(mapStateToProps, mapDispatchToProps)(EditActivityForm);

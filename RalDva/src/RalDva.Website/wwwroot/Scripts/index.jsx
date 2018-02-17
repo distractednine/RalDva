@@ -11,13 +11,17 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 import storeFactory from "./store/storeFactory.js";
 
+// localization
+import Moment from "moment";
+import momentLocalizer from "react-widgets-moment";
+
 // components
 import MainNavbar from "./components/MainNavbar.jsx";
 import MainActionMenu from "./components/MainActionMenu.jsx";
 import NotificationsHolder from "./components/NotificationsHolder.jsx";
 import FourOuFour from "./components/FourOuFour.jsx";
 import LoadingRedirect from "./components/LoadingRedirect.jsx";
-import AddActivityForm from "./components/AddActivity/AddActivityForm.jsx";
+import EditActivityForm from "./components/EditActivity/EditActivityForm.jsx";
 import TestComponent from "./test/TestComponent.jsx";
 
 (function () {
@@ -27,7 +31,7 @@ import TestComponent from "./test/TestComponent.jsx";
                 <MainNavbar/>
                 <MainActionMenu/>
                 <NotificationsHolder/>
-                <AddActivityForm/>
+                <EditActivityForm/>
             </div>
         );
     };
@@ -65,6 +69,10 @@ import TestComponent from "./test/TestComponent.jsx";
     };
 
     const store = storeFactory();
+
+    // localization - used by wigets
+    Moment.locale('en-GB');
+    momentLocalizer();
 
     renderApp(store);
 }());

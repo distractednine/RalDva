@@ -73,17 +73,18 @@ improve routes at backend to support frontend routing - add appropriate filter
 
 add AddActivity form + infrastructure
 
+add select 2, datetimepicker FE packages
+
+
+
+
 
 
 #todo:
 
-add details json prop to ef ActivityEntityBase entity
-
-add PanelGroup, Panel controls on form
+set min, max values for datetimepicker inputs
 
 localize inputs on Add anime form
-
-add select 2, datetimepicker FE packages
 
 add add anime from + validation
 
@@ -92,6 +93,8 @@ add wa parsing, ral 2 search
 WA api:
 
 http://www.world-art.ru/search.php?public_search=evangelion&global_sector=animation
+
+add details json prop to ef ActivityEntityBase entity
 
 add filter panel on right + links
 
@@ -161,6 +164,8 @@ add game activity type??
 
 
 #rejected:
+
+add PanelGroup, Panel controls on form
 
 adjust logo on navbar
 

@@ -3,11 +3,11 @@ import React from "react";
 import ReactDom from "react-dom";
 
 // react-bootstrap
-//import { Grid, Row, Col, NavDropdown, MenuItem } from "react-bootstrap";
 import { Row, Col, Form, FormGroup, ControlLabel, FormControl, HelpBlock, Button } from "react-bootstrap";
 
+import { DateTimePicker } from 'react-widgets';
 
-class AddNewAnime extends React.Component {
+class EditAnime extends React.Component {
     constructor(props) {
         super(props);
 
@@ -18,7 +18,7 @@ class AddNewAnime extends React.Component {
         return (
                 <Row>
                     <Col xs={4} md={4}>
-                        <FormGroup controlId="formBasicText"
+                        <FormGroup controlId="editAnime-name"
                                    validationState={null}>
                             <ControlLabel>Name - text</ControlLabel>
                             <FormControl type="text"
@@ -30,21 +30,24 @@ class AddNewAnime extends React.Component {
                         </FormGroup>
                     </Col>
                     <Col xs={4} md={4}>
-                        <FormGroup controlId="formBasicText"
+                        <FormGroup controlId="editAnime-year"
                                    validationState={null}>
                             <ControlLabel>Year - datetimepicker</ControlLabel>
-                            <FormControl type="text"
-                                         value={this.placeholder}
-                                         placeholder="Enter text"
-                                         onChange={() => {}}/>
+                            <DateTimePicker id="year-datepicker" 
+                                            value={new Date()} 
+                                            format="YYYY"
+                                            views={["decade"]}
+                                            footer={false}
+                                            time={false}
+                                            onChange={() => {}} />
                             <FormControl.Feedback/>
                             <HelpBlock></HelpBlock>
                         </FormGroup>
                     </Col>
                     <Col xs={4} md={4}>
-                        <FormGroup controlId="formBasicText"
+                        <FormGroup controlId="editAnime-"
                                    validationState={null}>
-                            <ControlLabel>Genres - select 2</ControlLabel>
+                            <ControlLabel>Genres - Multiselect</ControlLabel>
                             <FormControl type="text"
                                          value={this.placeholder}
                                          placeholder="Enter text"
@@ -61,9 +64,9 @@ class AddNewAnime extends React.Component {
         return (
             <Row>
                 <Col xs={3} md={3}>
-                    <FormGroup controlId="formBasicText"
+                    <FormGroup controlId="editAnime-"
                                validationState={null}>
-                        <ControlLabel>Type - list - movie, ova, series</ControlLabel>
+                        <ControlLabel>Type - Combobox - movie, ova, series</ControlLabel>
                         <FormControl type="text"
                                      value={this.placeholder}
                                      placeholder="Enter text"
@@ -73,9 +76,22 @@ class AddNewAnime extends React.Component {
                     </FormGroup>
                 </Col>
                 <Col xs={3} md={3}>
-                    <FormGroup controlId="formBasicText"
+                    <FormGroup controlId="editAnime-"
+                                validationState={null}>
+
+                        <ControlLabel>Duration - NumberPicker</ControlLabel>
+                        <FormControl type="text"
+                                     value={this.placeholder}
+                                     placeholder="Enter text"
+                                     onChange={() => {}}/>
+                        <FormControl.Feedback/>
+                        <HelpBlock>show per ep label if type is series</HelpBlock>
+                    </FormGroup>
+                </Col>
+                <Col xs={3} md={3}>
+                    <FormGroup controlId="editAnime-"
                                validationState={null}>
-                        <ControlLabel>Duration - timespan</ControlLabel>
+                        <ControlLabel>Season number - NumberPicker</ControlLabel>
                         <FormControl type="text"
                                      value={this.placeholder}
                                      placeholder="Enter text"
@@ -85,21 +101,9 @@ class AddNewAnime extends React.Component {
                     </FormGroup>
                 </Col>
                 <Col xs={3} md={3}>
-                    <FormGroup controlId="formBasicText"
+                    <FormGroup controlId="editAnime-"
                                validationState={null}>
-                        <ControlLabel>Season number - positive int input</ControlLabel>
-                        <FormControl type="text"
-                                     value={this.placeholder}
-                                     placeholder="Enter text"
-                                     onChange={() => {}}/>
-                        <FormControl.Feedback/>
-                        <HelpBlock></HelpBlock>
-                    </FormGroup>
-                </Col>
-                <Col xs={3} md={3}>
-                    <FormGroup controlId="formBasicText"
-                               validationState={null}>
-                        <ControlLabel>Episode num - positive int input</ControlLabel>
+                        <ControlLabel>Episode num - NumberPicker</ControlLabel>
                         <FormControl type="text"
                                      value={this.placeholder}
                                      placeholder="Enter text"
@@ -116,7 +120,7 @@ class AddNewAnime extends React.Component {
         return (
             <Row>
                     <Col xs={4} md={4}>
-                        <FormGroup controlId="formBasicText"
+                        <FormGroup controlId="editAnime-"
                                    validationState={null}>
                             <ControlLabel>Director - text</ControlLabel>
                             <FormControl type="text"
@@ -128,7 +132,7 @@ class AddNewAnime extends React.Component {
                         </FormGroup>
                     </Col>
                     <Col xs={4} md={4}>
-                        <FormGroup controlId="formBasicText"
+                        <FormGroup controlId="editAnime-"
                                    validationState={null}>
                             <ControlLabel>Country - text</ControlLabel>
                             <FormControl type="text"
@@ -140,7 +144,7 @@ class AddNewAnime extends React.Component {
                         </FormGroup>
                     </Col>
                     <Col xs={4} md={4}>
-                        <FormGroup controlId="formBasicText"
+                        <FormGroup controlId="editAnime-"
                                    validationState={null}>
                             <ControlLabel>Language - text</ControlLabel>
                             <FormControl type="text"
@@ -151,26 +155,27 @@ class AddNewAnime extends React.Component {
                             <HelpBlock></HelpBlock>
                         </FormGroup>
                     </Col>
-                </Row>);
+                </Row>
+                );
     }
 
     renderPersonalDetailsSection1() {
         return (
             <Row>
-                    <Col xs={4} md={4}>
-                        <FormGroup controlId="formBasicText"
-                                   validationState={null}>
-                            <ControlLabel>Tags - text via semicolon</ControlLabel>
+                <Col xs={4} md={4}>
+                    <FormGroup controlId="editAnime-"
+                                validationState={null}>
+                        <ControlLabel>Tags - text via semicolon</ControlLabel>
                             <FormControl type="text"
-                                         value={this.placeholder}
-                                         placeholder="Enter text"
-                                         onChange={() => {}}/>
+                                        value={this.placeholder}
+                                        placeholder="Enter text"
+                                        onChange={() => {}}/>
                             <FormControl.Feedback/>
                             <HelpBlock></HelpBlock>
                         </FormGroup>
                     </Col>
                     <Col xs={8} md={8}>
-                        <FormGroup controlId="formBasicText"
+                        <FormGroup controlId="editAnime-"
                                    validationState={null}>
                             <ControlLabel>Descr - text</ControlLabel>
                             <FormControl type="text"
@@ -181,63 +186,65 @@ class AddNewAnime extends React.Component {
                             <HelpBlock></HelpBlock>
                         </FormGroup>
                     </Col>
-                    </Row>
-                    );
+                </Row>
+                );
     }
 
     renderPersonalDetailsSection2() {
         return(
             <Row>
-                    <Col xs={3} md={3}>
-                        <FormGroup controlId="formBasicText"
-                                   validationState={null}>
-                            <ControlLabel>Status - dropdown</ControlLabel>
-                            <FormControl type="text"
-                                         value={this.placeholder}
-                                         placeholder="Enter text"
-                                         onChange={() => {}}/>
-                            <FormControl.Feedback/>
-                            <HelpBlock></HelpBlock>
-                        </FormGroup>
-                    </Col>
-                    <Col xs={3} md={3}>
-                        <FormGroup controlId="formBasicText"
-                                   validationState={null}>
-                            <ControlLabel>Stattime - datepicker</ControlLabel>
-                            <FormControl type="text"
-                                         value={this.placeholder}
-                                         placeholder="Enter text"
-                                         onChange={() => {}}/>
-                            <FormControl.Feedback/>
-                            <HelpBlock></HelpBlock>
-                        </FormGroup>
-                    </Col>
-                    <Col xs={3} md={3}>
-                        <FormGroup controlId="formBasicText"
-                                   validationState={null}>
-                            <ControlLabel>End time - datepicker</ControlLabel>
-                            <FormControl type="text"
-                                         value={this.placeholder}
-                                         placeholder="Enter text"
-                                         onChange={() => {}}/>
-                            <FormControl.Feedback/>
-                            <HelpBlock></HelpBlock>
-                        </FormGroup>
-                    </Col>
-                    <Col xs={3} md={3}>
-                        <FormGroup controlId="formBasicText"
-                                   validationState={null}>
-                            <ControlLabel>Dropped on episode - positive int input whown if status is dropped and type != movie</ControlLabel>
-                            <FormControl type="text"
-                                         value={this.placeholder}
-                                         placeholder="Enter text"
-                                         onChange={() => {}}/>
-                            <FormControl.Feedback/>
-                            <HelpBlock></HelpBlock>
-                        </FormGroup>
-                    </Col>
-                </Row>
-                );
+                <Col xs={4} md={4}>
+                    <FormGroup controlId="editAnime-"
+                               validationState={null}>
+                        <ControlLabel>Status - Combobox</ControlLabel>
+                        <FormControl type="text"
+                                     value={this.placeholder}
+                                     placeholder="Enter text"
+                                     onChange={() => {}}/>
+                        <FormControl.Feedback/>
+                        <HelpBlock></HelpBlock>
+                    </FormGroup>
+                </Col>
+                <Col xs={4} md={4}>
+                    <FormGroup controlId="editAnime-"
+                               validationState={null}>
+                        <ControlLabel>Stattime - datepicker</ControlLabel>
+                        <DateTimePicker id="start-time-datepicker" value={new Date()} onChange={() => {}}/>
+                        <FormControl.Feedback/>
+                        <HelpBlock></HelpBlock>
+                    </FormGroup>
+                </Col>
+                {this.renderEndTimeOrDropppedControl()}
+            </Row>
+            );
+    }
+
+    renderEndTimeOrDropppedControl () {
+        return (2 > 1 ? //has not dropped status
+            <Col xs={4} md={4}>
+                <FormGroup controlId="editAnime-"
+                           validationState={null}>
+                    <ControlLabel>End time - datepicker</ControlLabel>
+                    <DateTimePicker id="end-time-datepicker" value={new Date()} onChange={() => {}}/>
+                    <FormControl.Feedback/>
+                    <HelpBlock></HelpBlock>
+                </FormGroup>
+            </Col>
+            : <Col xs={4} md={4}>
+                  <FormGroup controlId="editAnime-"
+                             validationState={null}>
+                      <ControlLabel>
+                          Dropped on episode - NumberPicker whown if status is dropped and type != movie
+                      </ControlLabel>
+                      <FormControl type="text"
+                                   value={this.placeholder}
+                                   placeholder="Enter text"
+                                   onChange={() => {}}/>
+                      <FormControl.Feedback/>
+                      <HelpBlock></HelpBlock>
+                  </FormGroup>
+              </Col>
+              );
     }
 
     test() {
@@ -307,4 +314,4 @@ class AddNewAnime extends React.Component {
     }
 }
 
-export default AddNewAnime;
+export default EditAnime;
