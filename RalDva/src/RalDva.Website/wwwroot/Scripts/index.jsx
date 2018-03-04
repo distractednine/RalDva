@@ -14,6 +14,7 @@ import storeFactory from "./store/storeFactory.js";
 // localization
 import Moment from "moment";
 import momentLocalizer from "react-widgets-moment";
+import simpleNumberLocalizer from 'react-widgets-simple-number';
 
 // components
 import MainNavbar from "./components/MainNavbar.jsx";
@@ -73,6 +74,7 @@ import TestComponent from "./test/TestComponent.jsx";
     // localization - used by wigets
     Moment.locale('en-GB');
     momentLocalizer();
+    simpleNumberLocalizer();
 
     renderApp(store);
 }());

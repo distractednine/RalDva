@@ -82,6 +82,8 @@ add select 2, datetimepicker FE packages
 
 #todo:
 
+set formatter for ep number input - :00
+
 set min, max values for datetimepicker inputs
 
 localize inputs on Add anime form

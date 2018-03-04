@@ -5,13 +5,32 @@ import ReactDom from "react-dom";
 // react-bootstrap
 import { Row, Col, Form, FormGroup, ControlLabel, FormControl, HelpBlock, Button } from "react-bootstrap";
 
-import { DateTimePicker } from 'react-widgets';
+import { DateTimePicker, Multiselect, Combobox, NumberPicker } from 'react-widgets';
 
 class EditAnime extends React.Component {
     constructor(props) {
         super(props);
 
         this.placeholder = "";
+
+        this.genres = ['genre1', 'genre2', 'genre3', 'genre4', 'genre5'];
+        this.types = ['movie', 'OVA', 'TvSeries'];
+
+        this.state = {
+            year: new Date(),
+            name: '',
+            genre: [this.genres[0]],
+            type: this.types[0],
+            duration: 0,
+            episodeCount: 0,
+            episodeNumber: 0
+        };
+
+        this.onTxtChange = this.onTxtChange.bind(this);
+    }
+
+    onTxtChange(input) {
+        this.setState({ ...this.state, [input.name]: input.value });
     }
 
     renderGeneralSection() {
@@ -20,11 +39,12 @@ class EditAnime extends React.Component {
                     <Col xs={4} md={4}>
                         <FormGroup controlId="editAnime-name"
                                    validationState={null}>
-                            <ControlLabel>Name - text</ControlLabel>
+                            <ControlLabel>Name</ControlLabel>
                             <FormControl type="text"
-                                         value={this.placeholder}
+                                         value={this.state.name}
                                          placeholder="Enter text"
-                                         onChange={() => {}}/>
+                                         name="name"
+                                         onChange={e => this.onTxtChange(e.target)} />
                             <FormControl.Feedback/>
                             <HelpBlock></HelpBlock>
                         </FormGroup>
@@ -32,14 +52,14 @@ class EditAnime extends React.Component {
                     <Col xs={4} md={4}>
                         <FormGroup controlId="editAnime-year"
                                    validationState={null}>
-                            <ControlLabel>Year - datetimepicker</ControlLabel>
+                            <ControlLabel>Year</ControlLabel>
                             <DateTimePicker id="year-datepicker" 
-                                            value={new Date()} 
+                                            value={this.state.year} 
                                             format="YYYY"
                                             views={["decade"]}
                                             footer={false}
                                             time={false}
-                                            onChange={() => {}} />
+                                            onChange={year => this.setState({ ...this.state, year })} />
                             <FormControl.Feedback/>
                             <HelpBlock></HelpBlock>
                         </FormGroup>
@@ -47,11 +67,13 @@ class EditAnime extends React.Component {
                     <Col xs={4} md={4}>
                         <FormGroup controlId="editAnime-"
                                    validationState={null}>
-                            <ControlLabel>Genres - Multiselect</ControlLabel>
-                            <FormControl type="text"
-                                         value={this.placeholder}
-                                         placeholder="Enter text"
-                                         onChange={() => {}}/>
+                            <ControlLabel>Genres</ControlLabel>
+                            <Multiselect data={this.genres}
+                                         value={this.state.genre}
+                                         onChange={genre => this.setState({ ...this.state, genre })}
+                                         caseSensitive={false}
+                                         minLength={3}
+                                         filter='contains'/>
                             <FormControl.Feedback/>
                             <HelpBlock></HelpBlock>
                         </FormGroup>
@@ -66,11 +88,12 @@ class EditAnime extends React.Component {
                 <Col xs={3} md={3}>
                     <FormGroup controlId="editAnime-"
                                validationState={null}>
-                        <ControlLabel>Type - Combobox - movie, ova, series</ControlLabel>
-                        <FormControl type="text"
-                                     value={this.placeholder}
-                                     placeholder="Enter text"
-                                     onChange={() => {}}/>
+                        <ControlLabel>Type</ControlLabel>
+                        <Combobox data={this.types}
+                                value={this.state.type}
+                                onChange={type => this.setState({ ...this.state, type })}
+                                caseSensitive={false}
+                                filter='contains'/>
                         <FormControl.Feedback/>
                         <HelpBlock></HelpBlock>
                     </FormGroup>
@@ -78,14 +101,17 @@ class EditAnime extends React.Component {
                 <Col xs={3} md={3}>
                     <FormGroup controlId="editAnime-"
                                 validationState={null}>
+                        <ControlLabel>{this.state.type !== 'TvSeries' ? 'Duration in minutes' : 'Duration in minutes (per episode)' }</ControlLabel>
 
-                        <ControlLabel>Duration - NumberPicker</ControlLabel>
-                        <FormControl type="text"
-                                     value={this.placeholder}
-                                     placeholder="Enter text"
-                                     onChange={() => {}}/>
+                        <NumberPicker min={0} 
+                                max={999} 
+                                value={this.state.duration}
+                                format={val => val + ':00'}
+                                parse={val => val.substring(0, val.length-3)}
+                                onChange={duration => this.setState({ ...this.state, duration })}/>
+
                         <FormControl.Feedback/>
-                        <HelpBlock>show per ep label if type is series</HelpBlock>
+                        <HelpBlock></HelpBlock>
                     </FormGroup>
                 </Col>
                 <Col xs={3} md={3}>
