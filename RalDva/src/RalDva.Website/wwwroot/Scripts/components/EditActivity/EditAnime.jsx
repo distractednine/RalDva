@@ -246,6 +246,8 @@ class EditAnime extends React.Component {
     }
 
     renderEndTimeOrDropppedControl () {
+        //alert("2");
+
         return (2 > 1 ? //has not dropped status
             <Col xs={4} md={4}>
                 <FormGroup controlId="editAnime-"
