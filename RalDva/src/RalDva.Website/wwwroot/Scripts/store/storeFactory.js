@@ -1,4 +1,4 @@
-﻿import { createStore, combineReducers, applyMiddleware } from "redux";
+﻿import { createStore, combineReducers, applyMiddleware, compose  } from "redux";
 
 // reducers 
 import notification from "../reducers/notificationReducer.js";
@@ -22,8 +22,14 @@ export default () => {
     };
 
     const combinedReducers = combineReducers(reducers);
+
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
     const middleware = applyMiddleware(apiCommunicationMiddleware);
-    const store = createStore(combinedReducers, initialState, middleware);
+
+    const composedMiddleware = composeEnhancers(middleware);
+
+    const store = createStore(combinedReducers, initialState, composedMiddleware);
 
     return store;
 };
