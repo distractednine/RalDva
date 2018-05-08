@@ -17,6 +17,7 @@ module.exports = {
         host: "localhost",
         port: 43546
     },
+    watch: true,
     //resolve: {
     //    extensions: ['.js', '.jsx'],
     //    alias: {
