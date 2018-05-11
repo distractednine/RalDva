@@ -1,4 +1,4 @@
-﻿import actionNames from '../actions/actionNames.js';
+﻿import actionNames from "../actions/actionNames.js";
 import apiCommunicationActions from "../actions/apiCommunicationActions.js";
 import dataservice from "../utils/dataservice.js";
 

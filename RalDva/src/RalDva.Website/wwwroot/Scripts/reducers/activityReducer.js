@@ -1,4 +1,4 @@
-﻿import actionNames from '../actions/actionNames.js';
+﻿import actionNames from "../actions/actionNames.js";
 import enums from "../utils/enums.js";
 
 export default (state = {}, action) => {
