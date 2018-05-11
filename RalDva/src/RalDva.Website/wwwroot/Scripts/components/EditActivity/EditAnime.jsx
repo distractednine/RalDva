@@ -8,13 +8,13 @@ import { Row, Col, Form, FormGroup, ControlLabel, FormControl, HelpBlock, Button
 import { DateTimePicker, Multiselect, Combobox, NumberPicker } from 'react-widgets';
 
 class EditAnime extends React.Component {
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props);
 
-        this.placeholder = "";
+		this.placeholder = "";
 
-        this.genres = ['genre1', 'genre2', 'genre3', 'genre4', 'genre5'];
-        this.types = ['movie', 'OVA', 'TvSeries'];
+		this.genres = ['genre1', 'genre2', 'genre3', 'genre4', 'genre5'];
+		this.types = ['movie', 'OVA', 'TvSeries'];
 
         this.state = {
             year: new Date(),
@@ -65,7 +65,7 @@ class EditAnime extends React.Component {
                         </FormGroup>
                     </Col>
                     <Col xs={4} md={4}>
-                        <FormGroup controlId="editAnime-"
+                        <FormGroup controlId="editAnime-" 
                                    validationState={null}>
                             <ControlLabel>Genres</ControlLabel>
                             <Multiselect data={this.genres}
@@ -101,7 +101,7 @@ class EditAnime extends React.Component {
                 <Col xs={3} md={3}>
                     <FormGroup controlId="editAnime-"
                                 validationState={null}>
-                        <ControlLabel>{this.state.type !== 'TvSeries' ? 'Duration in minutes' : 'Duration in minutes (per episode)' }</ControlLabel>
+                        <ControlLabel>{this.state.type !== "TvSeries" ? 'Duration in minutes' : 'Duration in minutes (per episode)' }</ControlLabel>
 
                         <NumberPicker min={0} 
                                 max={999} 

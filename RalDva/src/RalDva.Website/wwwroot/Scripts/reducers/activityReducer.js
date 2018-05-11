@@ -4,22 +4,27 @@ import enums from "../utils/enums.js";
 export default (state = {}, action) => {
 
     switch (action.type) {
-        case actionNames.setActivities:
-            let {activities} = action.payload;
+        case actionNames.setActivities: 
+        {
+            let { activities } = action.payload;
 
             return { ...state, activities };
-
+        }
         case actionNames.setSelectedActivity:
-            let {selectedActivity} = action.payload;
-            var selectedActn =
-                state.selectedAction ? state.selectedAction : enums.routeActionNames[0];
+            {
+                let { selectedActivity } = action.payload;
+                var selectedActn =
+                    state.selectedAction ? state.selectedAction : enums.routeActionNames[0];
 
-            return { ...state, selectedActivity, selectedAction : selectedActn };
+                return { ...state, selectedActivity, selectedAction: selectedActn };
+            }
 
         case actionNames.setSelectedAction:
-            let {selectedAction} = action.payload;
+            {
+                let { selectedAction } = action.payload;
 
-            return { ...state, selectedAction };
+                return { ...state, selectedAction };
+            }
 
         default:
             return state;
