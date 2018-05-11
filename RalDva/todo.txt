@@ -75,14 +75,13 @@ add AddActivity form + infrastructure
 
 add select 2, datetimepicker FE packages
 
+set formatter for ep number input - :00
 
 
 
 
 
 #todo:
-
-set formatter for ep number input - :00
 
 set min, max values for datetimepicker inputs
 
